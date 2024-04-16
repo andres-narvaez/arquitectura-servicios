@@ -58,3 +58,8 @@
 */ehthumbs.db
 */Thumbs.db
 
+# Turbo
+.turbo
+out
+dist
+node_modules

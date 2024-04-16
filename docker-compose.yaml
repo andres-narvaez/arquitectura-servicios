@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  servicio-pagos:
+    container_name: servicio-pagos
+    build:
+      context: .
+      dockerfile: ./apps/servicio-pagos/Dockerfile
+    restart: always
+    ports:
+      - 3001:3001
+    networks:
+      - ecommerce_network
+
+  servicio-pedidos:
+    container_name: servicio-pedidos
+    build:
+      context: .
+      dockerfile: ./apps/servicio-pedidos/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - ecommerce_network
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  ecommerce_network:
+    external: true
